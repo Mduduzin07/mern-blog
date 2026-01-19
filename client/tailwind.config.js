@@ -3,9 +3,15 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/flowbite-react/lib/**/*.js",
+    "./node_modules/flowbite/**/*.js",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundClip: {
+        text: "text",
+      },
+    },
   },
-  plugins: [],
-}
+  plugins: [require("flowbite/plugin")],
+};

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vuyisile Mndebele's List - 20 People</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
+            padding: 45px 40px;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            animation: fadeIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes fadeIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px) scale(0.95); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0) scale(1); 
+            }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .header h1 {
+            font-weight: 900;
+            font-size: 3.2rem;
+            background: linear-gradient(90deg, #FF6EC7, #7873F5, #00C9FF);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, #FF6EC7, #7873F5);
+            border-radius: 2px;
+        }
+
+        .header p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .list-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+            gap: 22px;
+        }
+
+        .list-item {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 25px 30px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-left: 5px solid;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .list-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .list-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+
+        .list-item:hover::before {
+            transform: translateX(100%);
+        }
+
+        .number {
+            font-weight: 900;
+            font-size: 2.4rem;
+            min-width: 65px;
+            height: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-right: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .name {
+            font-weight: 800;
+            font-size: 1.6rem;
+            color: white;
+            letter-spacing: 0.5px;
+        }
+
+        .surname {
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.85);
+            letter-spacing: 0.3px;
+        }
+
+        /* Color schemes for 20 items */
+        .item-1 { border-left-color: #FF6EC7; }
+        .item-1 .number { background: linear-gradient(135deg, #FF6EC7, #FF8E53); }
+
+        .item-2 { border-left-color: #7873F5; }
+        .item-2 .number { background: linear-gradient(135deg, #7873F5, #4A00E0); }
+
+        .item-3 { border-left-color: #00C9FF; }
+        .item-3 .number { background: linear-gradient(135deg, #00C9FF, #92FE9D); color: #0f0c29; }
+
+        .item-4 { border-left-color: #FF9A8B; }
+        .item-4 .number { background: linear-gradient(135deg, #FF9A8B, #FF6EC7); }
+
+        .item-5 { border-left-color: #42E695; }
+        .item-5 .number { background: linear-gradient(135deg, #42E695, #3BB2B8); color: #0f0c29; }
+
+        .item-6 { border-left-color: #FFD86F; }
+        .item-6 .number { background: linear-gradient(135deg, #FFD86F, #FC6262); color: #0f0c29; }
+
+        .item-7 { border-left-color: #A18CD1; }
+        .item-7 .number { background: linear-gradient(135deg, #A18CD1, #FBC2EB); }
+
+        .item-8 { border-left-color: #FAD0C4; }
+        .item-8 .number { background: linear-gradient(135deg, #FAD0C4, #FF9A9E); color: #0f0c29; }
+
+        .item-9 { border-left-color: #667EEA; }
+        .item-9 .number { background: linear-gradient(135deg, #667EEA, #764BA2); }
+
+        .item-10 { border-left-color: #F093FB; }
+        .item-10 .number { background: linear-gradient(135deg, #F093FB, #F5576C); }
+
+        .item-11 { border-left-color: #4FACFE; }
+        .item-11 .number { background: linear-gradient(135deg, #4FACFE, #00F2FE); color: #0f0c29; }
+
+        .item-12 { border-left-color: #43E97B; }
+        .item-12 .number { background: linear-gradient(135deg, #43E97B, #38F9D7); color: #0f0c29; }
+
+        .item-13 { border-left-color: #FA709A; }
+        .item-13 .number { background: linear-gradient(135deg, #FA709A, #FEE140); }
+
+        .item-14 { border-left-color: #30CFD0; }
+        .item-14 .number { background: linear-gradient(135deg, #30CFD0, #330867); }
+
+        .item-15 { border-left-color: #A3BFFA; }
+        .item-15 .number { background: linear-gradient(135deg, #A3BFFA, #6991C7); color: #0f0c29; }
+
+        .item-16 { border-left-color: #FFECD2; }
+        .item-16 .number { background: linear-gradient(135deg, #FFECD2, #FCB69F); color: #0f0c29; }
+
+        .item-17 { border-left-color: #C471F5; }
+        .item-17 .number { background: linear-gradient(135deg, #C471F5, #F671F8); }
+
+        .item-18 { border-left-color: #F761A1; }
+        .item-18 .number { background: linear-gradient(135deg, #F761A1, #8C1BAB); }
+
+        .item-19 { border-left-color: #88D3CE; }
+        .item-19 .number { background: linear-gradient(135deg, #88D3CE, #6E45E2); color: #0f0c29; }
+
+        .item-20 { border-left-color: #FFB199; }
+        .item-20 .number { background: linear-gradient(135deg, #FFB199, #FF0844); color: #0f0c29; }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 400;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .footer i {
+            color: #FF6EC7;
+            margin: 0 5px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 1024px) {
+            .list-container {
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 25px;
+                margin: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .list-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .list-item {
+                padding: 20px;
+            }
+            
+            .number {
+                margin-right: 15px;
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+            
+            .name {
+                font-size: 1.4rem;
+            }
+            
+            .surname {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 25px 20px;
+            }
+            
+            .list-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .number {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Vuyisile Mndebele's List</h1>
+        </div>
+        
+        <div class="list-container">
+            <!-- Your Provided Names -->
+            <div class="list-item item-1">
+                <div class="number">1</div>
+                <div class="content">
+                    <div class="name">Vuyisile Pertunia</div>
+                    <div class="surname">Mndebele</div>
+                </div>
+            </div>
+            
+            <div class="list-item item-2">
+                <div class="number">2</div>
+                <div class="content">
+                    <div class="name">Mbekezeli Welcome</div>
+                    <div class="surname">Ntuli</div>
+                </div>
+            </div>
+            
+            <div class="list-item item-3">
+                <div class="number">3</div>
+                <div class="content">
+                    <div class="name">Zabuloni</div>
+                    <div class="surname">Mndebele</div>
+                </div>
+            </div>
+            
+            <!-- Additional Random Names -->
+            <div class="list-item item-4">
+                <div class="number">4</div>
+                <div class="content">
+                    <div class="name">Magreth Frorah</div>
+                    <div class="surname">Nhlabathi</div>
+                </div>
+            </div>
+            
+            <div class="list-item item-5">
+                <div class="number">5</div>
+                <div class="content">
+                    <div class="name">Eunice Roseline</div>
+                    <div class="surname">Mndebele</div>
+                </div>
+            </div>
+            
+            <div class="list-item item-6">
+                <div class="number">6</div>
+                <div class="content">
+                    <div class="name">Thembinkosi Johannes</div>
+                    <div class="surname">Mndebele</div>
+                </div>
+            </div>
+            
+            <div class="list-item item-7">
+                <div class="number">7</div>
+                <div class="content">
+                    <div class="name">Melokuhle Boitswarelo</div>
+                    <div class="surname">Mndebele</div>
+                </div>
+            </div>
+            
+            <div class="list-item item-8">
+                <div class="number">8</div>
+                <div class="content">
+                    <div class="name">Malibongwe</div>
+                    <div class="surname">Mabunda Mndebele</div>
+                </div>
+            </div>
+            
+            <div class="list-item item-9">
+                <div class="number">9</div>
+                <div class="content">
+                    <div class="name">Olwethu</div>
+                    <div class="surname">Mndebele - No Id</div>
+                </div>
+            </div>
+            
+            <div class="list-item item-10">
+                <div class="number">10</div>
+                <div class="content">
+                    <div class="name">Lwazi</div>
+                    <div class="surname">Ntuli Zikalala - No Id</div>
+                </div>
+            </div>
+            
+            <div class="list-item item-11">
+                <div class="number">11</div>
+                <div class="content">
+                    <div class="name">Zamani</div>
+                    <div class="surname">Ntuli Zikalala - No Id</div>
+                </div>
+            </div>
+            
+            <div class="list-item item-12">
+                <div class="number">12</div>
+                <div class="content">
+                    <div class="name">Mlondi</div>
+                    <div class="surname">Ntuli Zikalala - No Id</div>
+                </div>
+            </div>
+            
+            <div class="list-item item-13">
+                <div class="number">13</div>
+                <div class="content">
+                    <div class="name">Nqubeko</div>
+                    <div class="surname">Ntuli Zikalala - No Id</div>
+                </div>
+            </div>
+            
+            <div class="list-item item-14">
+                <div class="number">14</div>
+                <div class="content">
+                    <div class="name">Sibusiso</div>
+                    <div class="surname">Mndebele</div>
+                </div>
+            </div>
+            
+            <div class="list-item item-15">
+                <div class="number">15</div>
+                <div class="content">
+                    <div class="name">Samukelisiwe</div>
+                    <div class="surname">Mulaudzi</div>
+                </div>
+            </div>
+            
+            <div class="list-item item-16">
+                <div class="number">16</div>
+                <div class="content">
+                    <div class="name">Bongiwe</div>
+                    <div class="surname">Mndebele</div>
+                </div>
+            </div>
+            
+            <div class="list-item item-17">
+                <div class="number">17</div>
+                <div class="content">
+                    <div class="name">Goodness</div>
+                    <div class="surname">Mndebele</div>
+                </div>
+            </div>
+            
+            <div class="list-item item-18">
+                <div class="number">18</div>
+                <div class="content">
+                    <div class="name">Sombu Elphas</div>
+                    <div class="surname">Mndebele</div>
+                </div>
+            </div>
+            
+            <div class="list-item item-19">
+                <div class="number">19</div>
+                <div class="content">
+                    <div class="name">Goodwill</div>
+                    <div class="surname">Mulaudzi</div>
+                </div>
+            </div>
+            
+            <div class="list-item item-20">
+                <div class="number">20</div>
+                <div class="content">
+                    <div class="name">Mavis Thembisile</div>
+                    <div class="surname">Mndebele</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Add staggered animation to items
+        document.addEventListener('DOMContentLoaded', function() {
+            const items = document.querySelectorAll('.list-item');
+            
+            items.forEach((item, index) => {
+                // Staggered animation delay
+                item.style.animationDelay = `${index * 0.1}s`;
+                item.style.animation = 'fadeIn 0.6s ease-out forwards';
+                item.style.opacity = '0';
+            });
+            
+            // Add click effect
+            items.forEach(item => {
+                item.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
