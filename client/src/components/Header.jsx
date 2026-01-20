@@ -39,6 +39,7 @@ const Header = () => {
         </Button>
         <Link to="/sign-in">
           <Button
+            outline
             style={{
               background:
                 "linear-gradient(to right, #6366f1,  #601EF9, #8A2BE2)",
