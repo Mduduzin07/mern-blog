@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js",
+    "dev": "nodemon --exec \"node\" index.js",
     "start": "node index.js"
   },
   "repository": {
@@ -20,7 +20,9 @@
   },
   "homepage": "https://github.com/Mduduzin07/mern-blog#readme",
   "dependencies": {
+    "dotenv": "^17.2.3",
     "express": "^5.2.1",
+    "mongoose": "^9.1.4",
     "nodemon": "^3.1.11"
   }
 }
