@@ -1,68 +1,70 @@
-import { Navbar, TextInput, Button, Card, Badge } from "flowbite-react";
-import { HiUserGroup, HiUserAdd, HiCalendar } from "react-icons/hi";
+import { Navbar, Button } from "flowbite-react";
 import { Link, useLocation } from "react-router-dom";
 import { AiOutlineSearch } from "react-icons/ai";
 import { FaMoon } from "react-icons/fa";
 
 const Header = () => {
   const path = useLocation().pathname;
+
   return (
-    <Navbar className="border-b-2  bg-white dark:bg-gray-800">
-      <Link
-        to="/"
-        className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
-      >
-        <span
-          className="px-2 py-1 rounded-lg text-white"
-          style={{
-            background: "linear-gradient(to right, #6366f1, #8b5cf6, #ec4899)",
-          }}
+    <nav className="border-b-2 bg-white dark:bg-gray-800 px-4 py-3">
+      <div className="container mx-auto flex justify-between items-center">
+        <Link
+          to="/"
+          className="text-sm sm:text-xl font-semibold dark:text-white"
         >
-          Mduduzi's
-        </span>{" "}
-        Blog
-      </Link>
-      <form>
-        <TextInput
-          className="hidden lg:inline"
-          type="text"
-          placeholder="Search..."
-          rightIcon={AiOutlineSearch}
-        />
-      </form>
-      <Button className="w-12 h-10 lg:hidden" color="gray" pill>
-        <AiOutlineSearch />
-      </Button>
-      <div className="flex gap-2 md:order-2">
-        <Button className="w-12 h-10 hidden sm:inline" color="gray" pill>
-          <FaMoon />
-        </Button>
-        <Link to="/sign-in">
-          <Button
-            outline
+          <span
+            className="px-2 py-1 rounded-lg text-white"
             style={{
               background:
-                "linear-gradient(to right, #6366f1,  #601EF9, #8A2BE2)",
+                "linear-gradient(to right, #6366f1, #8b5cf6, #ec4899)",
             }}
-            className="text-white "
           >
-            Sign In
-          </Button>
+            Mduduzi's
+          </span>{" "}
+          Blog
         </Link>
-        <Navbar.Toggle />
+
+        <div className="flex items-center gap-3">
+          <Button className="w-12 h-10" color="gray" pill>
+            <AiOutlineSearch className="h-5 w-5" />
+          </Button>
+
+          <Button className="w-12 h-10 hidden sm:inline" color="gray" pill>
+            <FaMoon className="h-5 w-5" />
+          </Button>
+
+          <Link to="/sign-in">
+            <Button gradientduotone="purpleToPink" className="text-white">
+              Sign In
+            </Button>
+          </Link>
+        </div>
       </div>
-      <Navbar.Collapse>
-        <Navbar.Link as={Link} to="/" active={path === "/"}>
-          Home
-        </Navbar.Link>
-        <Navbar.Link as={Link} to="/about" active={path === "/about"}>
-          About
-        </Navbar.Link>
-        <Navbar.Link as={Link} to="/projects" active={path === "/projects"}>
-          Projects
-        </Navbar.Link>
-      </Navbar.Collapse>
-    </Navbar>
+
+      <div className="container mx-auto mt-3">
+        <div className="flex gap-4">
+          <Link
+            to="/"
+            className={`${path === "/" ? "text-purple-600 font-bold" : "text-gray-600"}`}
+          >
+            Home
+          </Link>
+          <Link
+            to="/about"
+            className={`${path === "/about" ? "text-purple-600 font-bold" : "text-gray-600"}`}
+          >
+            About
+          </Link>
+          <Link
+            to="/projects"
+            className={`${path === "/projects" ? "text-purple-600 font-bold" : "text-gray-600"}`}
+          >
+            Projects
+          </Link>
+        </div>
+      </div>
+    </nav>
   );
 };
 
